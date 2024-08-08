@@ -21,7 +21,14 @@ var newUser = { name: 'hitesh', isPaid: false, email: 'h@h.com' };
 function createCourse() {
     return { name: "reactjs", price: 399 };
 }
-function createNewUser(user) {
-    return { name: "", email: "", isActive: false };
-}
-createNewUser({ name: "", email: "", isActive: true });
+var myUser = {
+    _id: "1234",
+    fav_Frute: ["banana"],
+    name: "h",
+    email: "h@h.com",
+    isActive: false
+};
+myUser.email = "h@gmail.com";
+// myUser._id="5678" //not allow this becase it readonly properites
+var n = myUser.fav_Frute.push("apple");
+console.log(n);
