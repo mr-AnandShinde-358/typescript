@@ -17,6 +17,7 @@ let newUser = {name:'hitesh',isPaid:false,email:'h@h.com'}
 // one two year ago we not got error in above santax this is bad bahavior type script is fix it and its good to all
 // createCourse(newUser)//now we can't do this
 
+
 // this is confusing santax
 // function createCourse():{}{
 //     return {}
@@ -25,4 +26,24 @@ let newUser = {name:'hitesh',isPaid:false,email:'h@h.com'}
 function createCourse():{name:string,price:number}{
     return {name:"reactjs",price:399}
 }
+
+// Type Aliases
+
+
+type User ={
+    name:string,
+    email:string,
+    isActive:boolean
+}
+
+type Mystring =string
+function createNewUser(user:User):User{
+    return {name:"",email:"",isActive:false}
+}
+
+createNewUser({name:"",email:"",isActive:true})
+
+
+
+
 export {}
