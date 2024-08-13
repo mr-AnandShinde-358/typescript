@@ -76,3 +76,48 @@ function getFood(pet: Fish | Bird) {
     return "bird Food";
   }
 }
+
+// Discriminated Union and Exhaustiveness Checking with never
+
+interface Circle {
+  kind: "circle";
+  redius: number;
+}
+
+interface Square {
+  kind: "square";
+  side: number;
+}
+
+interface Rectangle {
+  kind: "rectangle";
+  length: number;
+  width: number;
+}
+
+type Shape = Circle | Square | Rectangle;
+
+function getTrueShape(shape: Shape) {
+  if (shape.kind === "circle") {
+    return Math.PI * shape.redius ** 2;
+  }
+  // return shape.side *shape.side
+}
+
+// getTrueShape({kind:"circle",redius:5}) // call a function
+
+function getArea(shape: Shape) {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.redius ** 2;
+    case "square":
+      return shape.side * shape.side;
+
+    case "rectangle":
+      return shape.length * shape.width;
+
+    default:
+      const _defaultForshape: never = shape;
+      return _defaultForshape;
+  }
+}
