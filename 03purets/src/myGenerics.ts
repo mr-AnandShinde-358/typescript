@@ -46,3 +46,57 @@ const getMoreSearchProducts =<T,>(products:T[]):T=>{ // <T ,> this comma is not 
     products.length
     return products[myIndex]
 }
+
+// Generic classes
+
+interface Database {
+    connection:string,
+    username:string,
+    password:string
+}
+
+// function anotherFunction<T,U extends number>(valOne:T,valTwo:U):object{
+function anotherFunction<T,U extends Database>(valOne:T,valTwo:U):object{
+    return {
+        valOne,
+        valTwo
+    }
+}
+
+// anotherFunction(3,{connection:"xyz",username:"dkjd",password:"anand"})
+
+interface Quize{
+    name:string,
+    type:string
+}
+
+interface Course{
+    name:string,
+    author:string,
+    subject:string
+}
+
+
+class Sellable<T>{
+    public cart:T[]=[]
+
+    addToCart(product:T){
+        this.cart.push(product)
+    }
+}
+
+
+// Create Instances and Add Items:
+
+// Create an instance of Sellable for Quize
+
+const quize = new Sellable<Quize>();
+quize.addToCart({name:"javascript",type:"20min"})
+
+const course = new Sellable<Course>();
+course.addToCart({author:"hitesh sir",name:"learn typescript ",subject:"typescript"})
+// Output the contents of the carts
+console.log("Quiz Cart:", quize.cart);
+console.log("Course Cart:", course.cart);
+
+

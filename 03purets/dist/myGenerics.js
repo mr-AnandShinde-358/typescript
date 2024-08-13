@@ -30,3 +30,27 @@ const getMoreSearchProducts = (products) => {
     products.length;
     return products[myIndex];
 };
+// function anotherFunction<T,U extends number>(valOne:T,valTwo:U):object{
+function anotherFunction(valOne, valTwo) {
+    return {
+        valOne,
+        valTwo
+    };
+}
+class Sellable {
+    constructor() {
+        this.cart = [];
+    }
+    addToCart(product) {
+        this.cart.push(product);
+    }
+}
+// Create Instances and Add Items:
+// Create an instance of Sellable for Quize
+const quize = new Sellable();
+quize.addToCart({ name: "javascript", type: "20min" });
+const course = new Sellable();
+course.addToCart({ author: "hitesh sir", name: "learn typescript ", subject: "typescript" });
+// Output the contents of the carts
+console.log("Quiz Cart:", quize.cart);
+console.log("Course Cart:", course.cart);
