@@ -121,3 +121,6 @@ function getArea(shape: Shape) {
       return _defaultForshape;
   }
 }
+
+
+// finish typescript
