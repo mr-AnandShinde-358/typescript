@@ -13,7 +13,8 @@
 
 class User{
 
-    private _courseCount =1
+    // private _courseCount =1
+    protected _courseCount =1
     readonly city:string="Jaipur"
     constructor(
         public email:string,
@@ -41,6 +42,14 @@ class User{
     }
 }
 
+// Protected : protected it can be used in the sme class as well as any class which inherits task tha't all
+
+class SubUser extends User {
+    isFamily: boolean= true
+    changeCourseCount(){
+        this._courseCount=4
+    }
+}
 const hitesh = new User("h@h.com","hitesh")
 // hitesh.city="Jaipur"
 // hitesh.deleteToken()
